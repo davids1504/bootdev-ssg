@@ -7,7 +7,7 @@ class TestHTMLNode(unittest.TestCase):
     def test_props_to_html_1(self):
         node = HTMLNode(
             "a",
-            "Google",
+            "Click me!",
             None,
             {
                 "href": "https://www.google.com",
