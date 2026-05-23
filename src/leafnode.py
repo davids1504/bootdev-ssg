@@ -1,5 +1,4 @@
 from htmlnode import HTMLNode
-from textnode import TextType
 
 
 class LeafNode(HTMLNode):
@@ -7,7 +6,7 @@ class LeafNode(HTMLNode):
         self,
         tag: str | None,
         value: str | None,
-        props: dict[str, str] | None = None,
+        props: dict[str, str | None] | None = None,
     ):
         super().__init__(tag, value, None, props)
 
@@ -20,8 +19,6 @@ class LeafNode(HTMLNode):
         if not props:
             props = ""
         closing_tag = f"</{self.tag}>"
-        if self.tag == TextType.IMAGE:
-            closing_tag = ""
         html = f"<{self.tag}{props}>{self.value}{closing_tag}"
         return html
 
