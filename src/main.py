@@ -1,11 +1,24 @@
-from textnode import TextNode, TextType
-
-print("hello world")
+import os
+import shutil
 
 
 def main():
-    text_node = TextNode("Anchor text", TextType.LINK, "https://www.boot.dev")
-    print(text_node)
+    if os.path.exists("public"):
+        shutil.rmtree("public")
+    os.mkdir("public")
+    if os.path.exists("static"):
+        copy_to_public("static", "public")
+
+
+def copy_to_public(source, destination):
+    dirs = os.listdir(source)
+    for item in dirs:
+        full_path = os.path.join(source, item)
+        if os.path.isfile(full_path):
+            shutil.copy(full_path, destination)
+        else:
+            os.mkdir(os.path.join(destination, item))
+            copy_to_public(os.path.join(source, item), os.path.join(destination, item))
 
 
 main()
