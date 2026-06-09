@@ -180,7 +180,7 @@ the **same** even with inline stuff
             "<div><pre><code>This is text that _should_ remain\nthe **same** even with inline stuff\n</code></pre></div>",
         )
 
-    def test_quoteblock(self):
+    def test_blockquote(self):
         md = """
 > This is text that _should_ remain
 > the **same** even with inline stuff
@@ -190,7 +190,7 @@ the **same** even with inline stuff
         html = node.to_html()
         self.assertEqual(
             html,
-            "<div><quoteblock>This is text that <i>should</i> remain the <b>same</b> even with inline stuff </quoteblock></div>",
+            "<div><blockquote>This is text that <i>should</i> remain the <b>same</b> even with inline stuff </blockquote></div>",
         )
 
     def test_ul(self):

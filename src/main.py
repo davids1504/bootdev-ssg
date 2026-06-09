@@ -1,6 +1,8 @@
 import os
 import shutil
 
+from generate_page import generate_page
+
 
 def main():
     if os.path.exists("public"):
@@ -8,6 +10,7 @@ def main():
     os.mkdir("public")
     if os.path.exists("static"):
         copy_to_public("static", "public")
+    generate_page("content/index.md", "template.html", "public/index.html")
 
 
 def copy_to_public(source, destination):

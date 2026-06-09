@@ -91,12 +91,12 @@ def markdown_to_html_node(markdown: str) -> HTMLNode:
                 html_nodes.append(ParentNode("pre", [code_block]))
             case BlockType.QUOTE:
                 block = block.strip("\n").split("\n")
-                quoteblock = ""
+                blockquote = ""
                 for line in block:
-                    quoteblock += line[2:] + " "
-                quoteblock = quoteblock.rstrip("\n")
+                    blockquote += line[2:] + " "
+                blockquote = blockquote.rstrip("\n")
                 html_nodes.append(
-                    ParentNode("quoteblock", text_to_children(quoteblock))
+                    ParentNode("blockquote", text_to_children(blockquote))
                 )
             case BlockType.UNORDERED_LIST:
                 block = block.split("- ")
