@@ -199,7 +199,6 @@ the **same** even with inline stuff
 
         node = markdown_to_html_node(md)
         html = node.to_html()
-        print(html)
         self.assertEqual(
             html,
             "<div><ul><li>First</li><li>Second</li></ul></div>",
@@ -211,7 +210,6 @@ the **same** even with inline stuff
 
         node = markdown_to_html_node(md.strip("\n"))
         html = node.to_html()
-        print(html)
         self.assertEqual(
             html,
             "<div><ol><li>First</li><li>Second</li></ol></div>",
