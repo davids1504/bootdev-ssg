@@ -6,8 +6,8 @@ from generate_page import generate_pages_recursive
 
 
 def main():
-    if len(sys.argv) > 0:
-        basepath = sys.argv[0]
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
     else:
         basepath = "/"
     if os.path.exists("docs"):
