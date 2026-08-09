@@ -100,18 +100,18 @@ def markdown_to_html_node(markdown: str) -> HTMLNode:
                 )
             case BlockType.UNORDERED_LIST:
                 block = block.split("- ")
-                listblock = ""
+                list_block = ""
                 for line in block:
                     if is_not_empty(line):
-                        listblock += "<li>" + line.strip("\n") + "</li>"
-                html_nodes.append(ParentNode("ul", text_to_children(listblock)))
+                        list_block += "<li>" + line.strip("\n") + "</li>"
+                html_nodes.append(ParentNode("ul", text_to_children(list_block)))
             case BlockType.ORDERED_LIST:
                 block = block.split("\n")
-                listblock = ""
+                list_block = ""
                 for line in block:
                     if is_not_empty(line):
-                        listblock += "<li>" + line[3:] + "</li>"
-                html_nodes.append(ParentNode("ol", text_to_children(listblock)))
+                        list_block += "<li>" + line[3:] + "</li>"
+                html_nodes.append(ParentNode("ol", text_to_children(list_block)))
 
     return ParentNode("div", html_nodes)
 
