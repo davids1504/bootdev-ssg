@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from generate_page import generate_page
+from generate_page import generate_pages_recursive
 
 
 def main():
@@ -10,7 +10,7 @@ def main():
     os.mkdir("public")
     if os.path.exists("static"):
         copy_to_public("static", "public")
-    generate_page("content/index.md", "template.html", "public/index.html")
+    generate_pages_recursive("content", "template.html", "public")
 
 
 def copy_to_public(source, destination):
